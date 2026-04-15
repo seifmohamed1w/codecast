@@ -1,0 +1,70 @@
+{
+  "name": "speakcode",
+  "displayName": "SpeakCode",
+  "description": "Control VS Code with your voice using Gemini AI",
+  "version": "0.0.1",
+  "publisher": "speakcode-team",
+  "private": true,
+  "engines": {
+    "vscode": "^1.89.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "speakcode.listen",
+        "title": "SpeakCode: Start Listening",
+        "category": "SpeakCode",
+        "icon": "$(mic)"
+      },
+      {
+        "command": "speakcode.stop",
+        "title": "SpeakCode: Stop Listening",
+        "category": "SpeakCode",
+        "icon": "$(debug-stop)"
+      },
+      {
+        "command": "speakcode.resetSession",
+        "title": "SpeakCode: Reset Session",
+        "category": "SpeakCode"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "type": "webview",
+          "id": "speakcode.sidebar",
+          "name": "SpeakCode"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "SpeakCode",
+      "properties": {
+        "speakcode.backendUrl": {
+          "type": "string",
+          "default": "http://localhost:8000",
+          "description": "URL of the SpeakCode FastAPI backend"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.89.0",
+    "@vscode/vsce": "^2.26.0",
+    "eslint": "^9.39.4",
+    "typescript": "^5.4.0"
+  }
+}

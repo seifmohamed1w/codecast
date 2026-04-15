@@ -1,0 +1,19 @@
+# Backend
+backend/.env
+backend/.venv/
+backend/__pycache__/
+backend/*.wav
+backend/*.mp3
+
+# Extension
+extension/node_modules/
+extension/out/
+extension/dist/
+extension/*.vsix
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
